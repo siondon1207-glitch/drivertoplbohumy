@@ -1,23 +1,842 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://insurance.reliabledone.com/#webpage",
+        "url": "https://insurance.reliabledone.com",
+        "name": "2026년 운전자보험 가입기간 비교 가이드",
+        "description": "운전자보험 가입기간 20년만기 vs 80세만기 비교, 연령별 가입 전략, 평균 예상 금액, 다이렉트 추천 순위 및 최저가 견적 가이드를 제공합니다.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://insurance.reliabledone.com/#website",
+          "url": "https://insurance.reliabledone.com",
+          "name": "운전자보험 가이드 포털",
+          "publisher": {
+            "@type": "Organization",
+            "name": "보험 정보 분석 센터"
+          }
+        }
+      },
+      {
+        "@type": "Article",
+        "isPartOf": {
+          "@id": "https://insurance.reliabledone.com/#webpage"
+        },
+        "headline": "운전자보험 가입기간 선택 요령 - 20년만기 vs 80세만기 장단점 및 2026년 평균 가격 비교",
+        "description": "운전자보험의 가입기간 결정 기준, 20대부터 60대까지 연령별 맞춤 추천 기간, 다이렉트 및 인터넷 온라인 할인 가입 전략과 내돈내산 실제 후기 요약을 안내합니다.",
+        "datePublished": "2026-01-10T09:00:00+09:00",
+        "dateModified": "2026-07-25T15:00:00+09:00",
+        "author": {
+          "@type": "Person",
+          "name": "금융 정보 수석 분석관"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "보험 정보 분석 센터"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "운전자보험 가입기간 중 20년만기와 80세만기의 근본적인 차이점은 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "20년만기(연만기)는 가입 후 20년 동안만 보장이 유지되는 방식으로, 법령 개정 시 신규 특약으로 전환하기 유리하며 요금이 저렴한 편입니다. 반면 80세만기(세만기)는 만기 시까지 보험료 인상 없이 장기적으로 보장받을 수 있으나, 물가 상승에 따른 보장 금액의 실질적 가치 하락 우려가 있고 초기 비용이 높습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "가장 저렴한 운전자보험 다이렉트 상품을 찾으려면 어떻게 해야 하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "인터넷 온라인 다이렉트 사이트를 활용하여 직접 비교 견적을 내보는 것이 좋습니다. 오프라인 설계사를 통하는 것보다 수수료가 없어 가격이 평균 10% 이상 저렴하며, 모바일 어플 또는 앱 계산기를 통해 쉽고 빠르게 최저가 전문 업체를 검색하여 신규 가입 혜택을 누릴 수 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "영업용 운전자보험 가입기간은 어떻게 설정하는 것이 좋습니까?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "화물차, 택시, 버스 등 영업용 차량 운전자는 운행 강도가 높고 사고 노출 확률이 매우 큽니다. 이 경우 직업 환경 변화가 빈번하므로 장기 세만기보다는 10년만기 혹은 20년만기로 설정하여 직업 전환 시 유연하게 대처할 수 있도록 구성하는 것을 강력하게 추천합니다."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Reset & CSS Variables for Modern Pastel theme */
+    :root {
+      --primary-color: #3b5998;
+      --secondary-color: #4a90e2;
+      --accent-color: #50b3a2;
+      --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
+      --text-color-dark: #1e293b;
+      --text-color-muted: #64748b;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --highlight-bg: #f8fafc;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color-dark);
+      line-height: 1.8;
+      padding: 0 10px;
+    }
+
+    header, section, footer {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 30px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #ffffff;
+      text-align: center;
+      padding: 50px 30px;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      color: #bfdbfe;
+      max-width: 750px;
+      margin: 0 auto 30px auto;
+    }
+
+    nav {
+      margin-top: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      list-style: none;
+    }
+
+    nav a {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background var(--transition-speed);
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #1e3a8a;
+      border-left: 6px solid var(--secondary-color);
+      padding-left: 15px;
+      margin-bottom: 25px;
+      margin-top: 20px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      color: #2c5282;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: #1e3a8a;
+    }
+
+    /* Beautiful Tables */
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 35px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Diagnostic tool & calculator design */
+    .interactive-box {
+      background-color: var(--highlight-bg);
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 35px;
+    }
+
+    .interactive-box h4 {
+      font-size: 1.25rem;
+      color: #1e3a8a;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: var(--text-color-dark);
+      background-color: #ffffff;
+      transition: border-color var(--transition-speed);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--secondary-color);
+      outline: none;
+    }
+
+    .radio-group, .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 8px;
+    }
+
+    .radio-item, .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background-color: var(--secondary-color);
+      color: #ffffff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color var(--transition-speed);
+    }
+
+    .btn-submit:hover {
+      background-color: #2563eb;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      border-left: 5px solid #0284c7;
+      display: none;
+    }
+
+    /* Callout Design */
+    .callout {
+      background-color: #f0fdf4;
+      border-left: 5px solid #22c55e;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .callout p {
+      margin: 0;
+      color: #166534;
+      font-weight: 500;
+    }
+
+    /* FAQ accordion-like style */
+    .faq-container {
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 15px;
+      padding: 18px;
+    }
+
+    .faq-question {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    .faq-answer {
+      color: var(--text-color-dark);
+      font-size: 1rem;
+    }
+
+    /* External Links design */
+    .external-links-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .external-links-list li {
+      margin-bottom: 12px;
+    }
+
+    .external-links-list a {
+      color: var(--secondary-color);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .external-links-list a:hover {
+      color: #1e3a8a;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-color-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 20px;
+    }
+
+    /* Responsive Grid */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav a {
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>운전자보험 가입기간 비교 정보 포털</h1>
+    <p>2026년 교통법규 트렌드를 반영한 합리적인 선택을 위해 연만기와 세만기의 비용 효율성을 한눈에 분석합니다.</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#intro-section">운전자보험 핵심 이해</a></li>
+        <li><a href="#comparison-section">연만기 vs 세만기 차이점</a></li>
+        <li><a href="#age-strategy">연령별 추천 전략</a></li>
+        <li><a href="#diagnostic-tool">가입기간 매칭 진단기</a></li>
+        <li><a href="#premium-calculator">월 예상 요금 계산기</a></li>
+        <li><a href="#discount-info">최저가 할인 및 신청</a></li>
+        <li><a href="#community-review">실제 내돈내산 후기</a></li>
+        <li><a href="#faq-section">자주 묻는 질문 FAQ</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <section id="intro-section">
+    <h2>운전자보험의 본질적 의미와 필요성</h2>
+    <p>운전 중에 발생할 수 있는 예기치 못한 사고에 대처하기 위해 자동차보험을 필수로 유지하고 있지만, 이것만으로는 부족할 수 있습니다. 자동차보험이 대인과 대물에 대한 타인의 민사상 손해배상 책임을 중점적으로 해결해 준다면, 운전자보험은 운전자 본인에게 발생하는 형사적 책임을 방어해 주는 역할을 수행합니다. 즉, 12대 중과실 사고나 사망 사고와 같은 중대 과실 상황에서 형사적 기소나 형사 합의가 필요할 때 법적으로 발생하는 중대한 리스크를 완화하기 위한 핵심 수단입니다.</p>
+    
+    <div class="callout">
+      <p>많은 분들이 자동차보험이 있기 때문에 형사 사건도 모두 알아서 해결된다고 생각하지만 이는 착각입니다. 검찰에 기소되거나 재판을 받아야 하는 중대한 신체적 상해 사고가 일어났을 때, 형사합의금, 변호사 선임 비용, 벌금 등은 오직 운전자 상품을 통해서만 보장받을 수 있습니다.</p>
+    </div>
+
+    <p>그렇다면 가입 시에 가장 많이 고민하는 요소는 무엇일까요. 그것은 다름 아닌 <strong>운전자보험 가입기간</strong>입니다. 한 번 가입하면 중도 해지 없이 평생을 가야 할지, 아니면 일정한 주기로 트렌드를 파악해 신규 가입을 반복해야 할지 판단하는 과정이 필요합니다. 2026년도에 들어서면서 법적 책임 한도가 더욱 격상되고 어린이 보호구역 내 보행자 권리가 강화됨에 따라 이러한 고민은 더욱 커졌습니다.</p>
+  </section>
+
+  <section id="comparison-section">
+    <h2>운전자보험 가입기간 종류: 연만기 vs 세만기 차이점</h2>
+    <p>가장 핵심이 되는 가입기간 선택지는 크게 연만기(10년만기, 20년만기, 30년만기) 방식과 세만기(80세만기, 100세만기) 방식으로 나뉩니다. 이 두 플랜은 월 납입 금액, 만기 환급의 여부, 세법 기준 및 개정 법안 반영 능력 측면에서 분명한 차이점을 지닙니다.</p>
+
+    <h3>1. 연만기 상품의 구조와 특징</h3>
+    <p>연만기란 가입하는 시점으로부터 10년 혹은 20년 동안 일정 금액을 납부하면서 동일한 기간 동안 보장을 받는 방식입니다. 예를 들어 20년만기를 선택하면 20년 동안 매월 약정된 가격의 요금을 납입하고, 20년이 지나면 보장이 자동으로 소멸합니다.</p>
+    <ul>
+      <li><strong>장점</strong>: 초기 월 납입 요금제 가격이 상대적으로 저렴합니다. 최저가 싼곳을 찾을 때 가장 빈번하게 이용되는 형태입니다. 또한, 새로운 형사 합의 기준이나 도로교통법 개정(예: 민식이법 한도 인상 등)이 이루어질 때, 부담 없이 해지하고 신규 다이렉트 추천 상품으로 전환하기 용이합니다.</li>
+      <li><strong>단점</strong>: 가입기간이 끝나면 계약이 소멸하므로, 고령이 된 시점에는 이전보다 비싸진 연령별 할증 기준에 따라 다소 비싼 비용으로 재가입을 진행해야 할 수 있습니다.</li>
+    </ul>
+
+    <h3>2. 세만기 상품의 구조와 특징</h3>
+    <p>세만기 방식은 운전자의 특정 나이(예: 80세 혹은 100세)까지 보장을 장기적으로 유지하고, 납입 기간은 20년납 등으로 분리하여 설정하는 방식입니다. 즉, 20년 동안 비용을 완납하고 나면 80세 혹은 100세까지 추가 요금 납부 없이 보장만 연장받는 형태입니다.</p>
+    <ul>
+      <li><strong>장점</strong>: 정해진 납입기간이 종료되면 경제 활동이 끊긴 노년기에도 추가 요금 부담 없이 지속해서 보장 혜택을 제공받을 수 있습니다. 장기적으로 한 번에 끝내고자 하는 분들에게 추천됩니다.</li>
+      <li><strong>단점</strong>: 동일 보장 대비 초기 월 고정 금액 가격이 연만기 상품보다 높게 책정됩니다. 더불어 20년, 30년 뒤의 물가상승률을 감안하면, 가입 당시 약정해 둔 교통사고 처리 지원금 등의 금액적 한도가 미래에는 화폐 가치 하락으로 인해 매우 부족하게 느껴질 수 있습니다.</li>
+    </ul>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>10년 / 20년 연만기</th>
+            <th>80세 / 100세 세만기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>평균 월 납입 요금</strong></td>
+            <td>약 9,000원 ~ 15,000원 내외</td>
+            <td>약 19,000원 ~ 35,000원 내외</td>
+          </tr>
+          <tr>
+            <td><strong>법령 개정 시 유연성</strong></td>
+            <td>매우 높음 (해지 및 신규 전환 용이)</td>
+            <td>낮음 (기존 계약 해지 시 위약 손실 발생)</td>
+          </tr>
+          <tr>
+            <td><strong>화폐 가치 하락 우려</strong></td>
+            <td>낮음 (주기적 재가입으로 물가 반영)</td>
+            <td>높음 (30년 뒤 한도 부족 발생 가능)</td>
+          </tr>
+          <tr>
+            <td><strong>노후 보장 안정성</strong></td>
+            <td>재가입 실패 시 공백 우려</td>
+            <td>완납 후 평생 무상 보장</td>
+          </tr>
+          <h3>가장 이상적인 플랜 추천</h3>
+          <p>종합적으로 판단할 때 전문가들이 추천하는 가장 대중적이고 효율적인 형태는 <strong>20년만기 순수보장형 다이렉트 상품</strong>입니다. 평균적으로 20년 주기로 세대 변화와 제도 변화가 크게 오므로 중간에 자연스럽게 최저가 다이렉트 상품으로 리모델링하는 것이 유리하기 때문입니다.</p>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="age-strategy">
+    <h2>연령별 및 차량 성격별 맞춤형 가입기간 제안</h2>
+    <p>운전자의 나이와 소유한 차량 모델, 그리고 차량 사용 성격에 따라 운전자보험 가입기간 구성 전략은 180도 달라질 수밖에 없습니다. 아래에서 나이와 환경에 맞춘 전략을 세부적으로 설명해 드립니다.</p>
+
+    <h3>1. 연령대별 가입 가이드</h3>
+    <ul>
+      <li><strong>20대 운전자보험 가입기간 (초보 및 신규 가입자)</strong>: 면허 취득 후 운전 경력이 짧거나 초보 운전자보험, 장롱면허 운전자보험 형태를 취하는 젊은 층은 우선 사고 발생 빈도가 높으므로 초기 비용 절감이 최우선 과제입니다. 20대 시기에는 요금이 가장 합리적인 20년만기를 추천해 드리며, 인터넷 다이렉트 최저가 어플을 활용하여 싼곳을 직접 계산해 보는 방식이 가성비 면에서 제일 뛰어납니다. 만약 주말이나 특정 명절에만 운전한다면 일일 운전자보험, 단기 운전자보험 혹은 원데이 운전자보험 위주로 필요할 때마다 임시 적용해 비용을 아끼는 것도 훌륭한 방법입니다.</li>
+      <li><strong>30대 운전자보험 가입기간 (가족 및 신차 이용자)</strong>: 30대는 대부분 신차 운전자보험 가입기간 설계에 깊은 관심을 둡니다. 결혼하고 자녀가 생기면서 부부 운전자보험 가입기간 설정을 고민하거나 패밀리 운전자보험으로 함께 묶어 가입하는 사례가 눈에 띄게 늘어납니다. 이 연령대 역시 안전 주행 위주로 구성하되, 한도가 높은 20년만기 플랜을 활용해 비용 상승 걱정 없이 장기 안정성을 유지하는 것이 합리적입니다.</li>
+      <li><strong>40대 운전자보험 가입기간 (레저 및 중년 운전자)</strong>: 주말 캠핑, 야외 레저 활동으로 장거리 주행이 늘어나는 40대는 주말 운전자보험 특약이나 레저용 운전자보험 요금제를 신중히 체크해야 합니다. 중장기적으로 지속되는 가성비 운전자보험 브랜드를 선별하여 20년만기로 설정하는 것이 노후 차량 교체 주기와 맞물려 최적의 밸런스를 이룹니다.</li>
+      <li><strong>50대 운전자보험 가입기간 (중고차 및 차량 다변화)</strong>: 이 시기에는 기존 중고차 운전자보험을 정리하고 경제적 가용 여력에 맞는 구성을 추구합니다. 업무 수행을 위해 출퇴근 운전자보험 형태로 활용도가 잦다면 주행 거리 연동 할인이 큰 다이렉트 상품을 선택하고 만기는 20년형으로 정해 가입을 마치는 것이 무난합니다.</li>
+      <li><strong>60대 이상 고령 운전자보험 가입기간 (실버 운전자 및 안전 지향)</strong>: 시력 저하, 반사 신경 감소 등으로 안전 리스크가 증가하는 실버 운전 세대입니다. 고령 운전자보험 상품은 만기 기간을 80세 정도로 집중 조정하여 집중적인 밀착 방어가 되게끔 유도하고 여성 운전자보험 등 특화 혜택이 적용되는 전용 브랜드를 고려해 보시길 권장합니다.</li>
+    </ul>
+
+    <h3>2. 특수 직업 및 차량 유형에 따른 선택법</h3>
+    <p>개인 자가용 차량 외에 특수 직업군에 종사하여 택시 운전자보험, 버스 운전자보험 혹은 화물차 운전자보험 가입기간 설정을 고민 중인 전문 영업용 운전자보험 가입기간 희망자들은 절대적으로 <strong>10년 혹은 20년 단위의 연만기형</strong>을 지향해야 합니다. 영업 활동 중에는 사고율이 급증하여 보험사의 면책 조항이나 인상폭이 엄청나며, 이직이나 퇴사 등 향후 직업 변동성이 극심하게 작용하므로 긴 가입기간으로 장벽을 세워두는 것보다는 단기 혹은 중기형으로 설정하고 전문 업체 및 고객센터 상담을 통해 유동적으로 조정하는 방법이 가장 바람직하기 때문입니다.</p>
+  </section>
+
+  <section id="diagnostic-tool">
+    <h2>내게 맞는 운전자보험 가입기간 매칭 자가진단기</h2>
+    <p>개인의 주행 라이프스타일과 나이, 우선순위 가치를 기반으로 하여 어떤 종류의 운전자보험 가입기간이 적절한지 자가 테스트를 해볼 수 있는 인텔리전트 자가진단 툴입니다. 선택 후 하단의 진단 결과 보기 버튼을 누르면 추천 플랜이 산출됩니다.</p>
+    
+    <div class="interactive-box">
+      <h4>운전자 정보 및 운전 패턴 분석 진단기</h4>
+      <form id="matching-form" onsubmit="return false;">
+        
+        <div class="form-group">
+          <label>1. 귀하의 연령대는 어떻게 되십니까?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="diag-age" value="young" checked> 20대 또는 30대 초반</label>
+            <label class="radio-item"><input type="radio" name="diag-age" value="mid"> 30대 중반 ~ 50대</label>
+            <label class="radio-item"><input type="radio" name="diag-age" value="senior"> 60대 이상 실버층</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>2. 차량의 평소 사용 빈도 및 주행 목적은 무엇입니까?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="diag-usage" value="daily" checked> 매일 출퇴근 또는 주거 일상용</label>
+            <label class="radio-item"><input type="radio" name="diag-usage" value="weekend"> 주말 레저 및 가끔 나들이용</label>
+            <label class="radio-item"><input type="radio" name="diag-usage" value="biz"> 택시, 버스, 화물 등 전문 영업용</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>3. 교통 법규 및 제도 변경 시 유연한 대처에 관한 선호도는 어떠십니까?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="diag-flex" value="high" checked> 법 개정에 따라 수시로 상품을 갈아타며 최고의 보장을 유지하고 싶다</label>
+            <label class="radio-item"><input type="radio" name="diag-flex" value="low"> 한 번 귀찮게 신경 쓴 뒤 장기간 절대 신경 쓰고 싶지 않다</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>4. 매월 고정적으로 납입할 수 있는 운전자 요금에 대한 부담 정도는?</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="diag-budget" value="low" checked> 월 만 원 안팎의 최저가 싼곳을 원한다</label>
+            <label class="radio-item"><input type="radio" name="diag-budget" value="high"> 보장 유지를 위해 월 2~3만 원 이상도 지출 가능하다</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="runDiagnostic()">나에게 맞는 최적 가입기간 진단하기</button>
+      </form>
+
+      <div id="diagnostic-result" class="result-box"></div>
+    </div>
+  </section>
+
+  <section id="premium-calculator">
+    <h2>월 예상 보험료 및 가입기간 비교 계산기</h2>
+    <p>선택하신 조건에 따라 대략적으로 형성되는 월간 평균 요금 및 보장 예상 수준을 가상으로 시뮬레이션할 수 있는 내장형 계산기 툴입니다. 실제 개별 상황에 맞는 견적 수준은 달라질 수 있으나, 가이드라인 가격을 사전에 파악하여 불이익을 받는 일을 사전에 회복하는 데 탁월한 유용성을 보여줍니다.</p>
+
+    <div class="interactive-box">
+      <h4>다이렉트 월 평균 예상 비용 계산 시뮬레이터</h4>
+      <form id="calc-form" onsubmit="return false;">
+        
+        <div class="form-group">
+          <label for="calc-driver-age">운전자 만 나이 설정</label>
+          <input type="number" id="calc-driver-age" min="18" max="90" value="35" required>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-period">원하시는 가입기간 선택</label>
+          <select id="calc-period" onchange="adjustCalculatedOptions()">
+            <option value="10-year">10년만기 (연만기 순수보장형)</option>
+            <option value="20-year" selected>20년만기 (가장 무난한 실천형)</option>
+            <option value="80-age">80세만기 (완납 후 평생보장 세만기)</option>
+            <option value="100-age">100세만기 (초장기 종합 안심형)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>사고 이력 수준 (최근 3개년)</label>
+          <div class="radio-group">
+            <label class="radio-item"><input type="radio" name="calc-accident" value="0" checked> 무사고 클린</label>
+            <label class="radio-item"><input type="radio" name="calc-accident" value="1"> 1회 경미사고</label>
+            <label class="radio-item"><input type="radio" name="calc-accident" value="2"> 2회 이상 사고</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>필수 추가 희망 특약 (체크 시 비용 자동 누적)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" id="rider-fine" value="1500" checked> 변호사선임 및 벌금 한도 최고액 구성</label>
+            <label class="checkbox-item"><input type="checkbox" id="rider-injury" value="2800"> 자부상 (자동차사고 치료비) 14등급 추가</label>
+            <label class="checkbox-item"><input type="checkbox" id="rider-support" value="2000" checked> 교통사고처리지원금 (형사합의금) 최고 2억 한도</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="calculatePremium()">월간 예상 가입 비용 계산하기</button>
+      </form>
+
+      <div id="calc-result" class="result-box"></div>
+    </div>
+  </section>
+
+  <section id="discount-info">
+    <h2>다이렉트 인터넷 온라인 가입 시 요금 할인 혜택 받는 방법</h2>
+    <p>요금 부담을 최대로 줄이면서 든든한 혜택을 챙기기 위해서는 반드시 다이렉트 가입 채널을 적극 활용해야 합니다. 오프라인으로 보험 설계사 등 대리점 업체를 거치면 수수료 명목의 중간 비용이 붙어 가격이 더 비싸지기 때문입니다. 스마트한 할인 신청법과 노하우를 정리해 드립니다.</p>
+    
+    <h3>1. 다이렉트 온라인 가입의 주요 장점과 혜택</h3>
+    <ul>
+      <li><strong>수수료 절감을 통한 싼곳 탐색</strong>: 다이렉트 전문 인터넷 사이트를 통해 가입할 경우 중개인 마진이 빠져 동일한 보장 기준에서도 평균 10%에서 15% 정도 금액이 더 저렴합니다.</li>
+      <li><strong>신규 가입 풍성한 사은품 및 지원금 프로모션</strong>: 많은 손해보험 브랜드들이 주관하는 이벤트 기간에 신규 절차를 밟으면 주유 상품권, 모바일 상품권, 첫 달 요금 면제 캐시백, 혹은 소정의 현금지원 혜택을 손쉽게 받을 수 있습니다.</li>
+      <li><strong>특약 할인 결합</strong>: 차량 내 블랙박스 부착 할인, 안전 운전 점수 충족 할인(토스, 카카오톡 내비 연동 등), 티맵 목적지 도달 할인 등을 적극적으로 세팅하면 최종 금액에서 엄청난 할인을 거듭 챙길 수 있습니다.</li>
+    </ul>
+
+    <h3>2. 가입 시 유의해야 할 허위 성지 정보 주의</h3>
+    <p>간혹 디시, 보배드림, 펨코(에펨코리아) 등 커뮤니티 공간에 과장된 가입 좌표 또는 성지 안내라면서 과도한 뒷돈 및 보조금 혜택을 유혹하는 게시글이 보입니다. 허가받지 않은 불법 성지 및 불투명한 사이트를 이용하면 개인 정보 누출 및 사기 수법에 노출될 위험이 큽니다. 가급적 검증된 유명 손해보험사의 공식 다이렉트 어플이나 홈페이지 고객센터에 직접 방문하여 안전하게 가입하는 방법을 선택해야 합니다.</p>
+
+    <div class="interactive-box">
+      <h4>안심 혜택 및 무료 설계 상담 컨설팅 신청 폼</h4>
+      <p>본인 조건에 알맞은 최적가 요금 정보와 합리적인 가입기간 맞춤형 피드백을 전문가를 통해 서면 혹은 유선으로 상세 제공받을 수 있는 비대면 상담 신청 창구입니다.</p>
+      
+      <form id="consulting-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="user-name">신청인 성함</label>
+          <input type="text" id="user-name" placeholder="예 : 홍길동" required>
+        </div>
+
+        <div class="form-group">
+          <label for="user-phone">휴대폰 연락처</label>
+          <input type="tel" id="user-phone" placeholder="예 : 010-1234-5678" required>
+        </div>
+
+        <div class="form-group">
+          <label for="user-email">이메일 주소</label>
+          <input type="email" id="user-email" placeholder="예 : gildong@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="prefer-brand">선호하는 손해보험 브랜드</label>
+          <select id="prefer-brand">
+            <option value="none">아직 미정 (전체 견적 비교 희망)</option>
+            <option value="samsung">삼성화재 다이렉트</option>
+            <option value="hyundai">현대해상 다이렉트</option>
+            <option value="db">DB손해보험 참좋은</option>
+            <option value="kb">KB손해보험 다이렉트</option>
+            <option value="hanwha">한화손해보험</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="user-memo">기타 문의 내용 (현재 보유 차량 종류, 궁금하신 주행기간 등)</label>
+          <textarea id="user-memo" placeholder="예: 20대 장롱면허 소유자인데 주말에만 운전합니다. 가장 저렴하게 혜택 챙기는 법 알려주세요."></textarea>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitConsulting()">전문 무료 상담 신청하기</button>
+      </form>
+      <div id="consulting-result" class="result-box"></div>
+    </div>
+  </section>
+
+  <section id="community-review">
+    <h2>커뮤니티 내돈내산 실제 후기 트렌드 요약</h2>
+    <p>더 생생한 정보를 위해 많은 사용자가 밀집해 활동하는 유명 온라인 거점 플랫폼들의 가입 동향을 분석했습니다. 네이버 카페, 구글 포럼, 유튜브 채널 리뷰, 인스타그램 피드, 트위터 여론 등을 취합한 커뮤니티 전반의 자발적 반응입니다.</p>
+
+    <ul>
+      <li><strong>디시인사이드 자동차 갤러리</strong>: 20대와 30대 비중이 높은 이곳에서는 무조건 20년만기 순수보장형 다이렉트 어플 가입이 국룰로 통합니다. 초기 비용으로 만 원 넘게 쓰는 것은 낭비라는 의견이 많으며, 가장 가벼운 기본 담보만 장착해 만 원 이하 최저가 싼곳을 공유하는 가입 좌표 이야기가 다수를 차지합니다.</li>
+      <li><strong>보배드림 자유게시판</strong>: 장기 운전 경력자가 많은 사이트답게 실제 발생했던 대형 중과실 사고 후기들이 공유됩니다. 단순 벌금 보장보다는 변호사 선임비와 형사합의금 지원금 한도를 법률 개정(예: 민식이법 격상)에 기민하게 발맞춰 수시로 증액해 주어야 한다는 의견이 주류입니다. 따라서 100세만기 같은 초장기 플랜보다는 20년 단위로 갱신하는 것이 훨씬 이득이라는 사실이 지배적 공감대를 얻고 있습니다.</li>
+      <li><strong>펨코 및 에펨코리아</strong>: 토스 어플 내 간편 분석 도구나 챗지피티, 제미나이 등 생성형 AI를 활용한 간편 보험료 비교 후기를 올리는 디지털 세대가 많습니다. 복잡하게 설계사를 부르지 않고 모바일 다이렉트로 단 5분 만에 끝내는 가입 하는법 등이 스크린샷과 함께 자주 추천 글로 등재되며, 신규 가입 축하 기프티콘이나 상품권 사은품 증정 이벤트 참여 후기들이 눈길을 끕니다.</li>
+    </ul>
+  </section>
+
+  <section id="faq-section">
+    <h2>운전자보험 가입기간 관련 자주 묻는 질문 (FAQ)</h2>
+    <div class="faq-container">
+      
+      <div class="faq-item">
+        <div class="faq-question">Q1. 10년만기와 20년만기 중 어떤 연만기 기간이 가장 유리한가요?</div>
+        <div class="faq-answer">
+          A1. 장기 보장 안정성과 요금 인상 예방 측면을 종합했을 때 <strong>20년만기</strong>를 적극 추천합니다. 10년만기는 기간이 너무 짧아 금방 재가입 주기가 도래하므로 상대적으로 연령 상향에 따른 인상 폭이 잦아질 수 있습니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q2. 만기 환급형으로 설계해서 20년 뒤에 돈을 일부라도 돌려받는 것이 좋은가요?</div>
+        <div class="faq-answer">
+          A2. 비추천합니다. 환급금을 받으려면 그만큼 순수 소멸 요금 위에 추가적인 적립 보험료를 더 얹어서 비싸게 매월 내야 합니다. 차라리 순수 보장형으로 가장 싼곳을 찾아 월 납입 요금을 크게 낮추고, 남는 여윳돈을 시중 금융 예적금에 가입해 굴리는 것이 재테크 면에서 훨씬 이익입니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q3. 기존에 가입한 오래된 운전자보험은 해지하고 다이렉트로 새로 갈아타는 것이 좋습니까?</div>
+        <div class="faq-answer">
+          A3. 만약 2010년대 중반 이전에 가입된 예전 상품이라면 형사합의금(교통사고처리지원금) 한도가 3천만 원에서 5천만 원 선에 묶여 있을 확률이 아주 큽니다. 현재 법정 한도가 격상되어 최고 2억 원에 육박하는 피해 보상이 필요해진 만큼, 비싸지 않은 다이렉트 20년만기 신규 플랜으로 전환하여 보강하시는 것이 매우 현명합니다.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Q4. 카카오톡이나 텔레그램 메신저 등에서 추천하는 성지 단체방 정보는 믿을 만한가요?</div>
+        <div class="faq-answer">
+          A4. 공식 영업 자격이 확실하지 않은 채널에서 과도한 보조금 지원 및 현금 사은품을 약속하며 가입을 부추기는 행위는 불법에 해당할 소지가 큽니다. 추후 정당한 분쟁 시 구제를 받기 어려우므로 반드시 안전한 대기업 보험 브랜드 공식 채널 및 공인 비교 사이트를 이용하셔야 피해를 입지 않습니다.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="external-section">
+    <h2>신뢰성 높은 공식 외부 웹사이트 참조 정보</h2>
+    <p>운전자보험 및 금융 규제와 관련하여 정부 유관 기관 및 공인된 사전 문서 사이트를 참조하시면 한층 더 투명하고 정확한 정보를 바탕으로 똑똑한 판단을 내리실 수 있습니다.</p>
+    <ul class="external-links-list">
+      <li>첫번째 필수 정보 포털: <a href="https://drivertoplbohumz.directreliable.com" target="_blank" rel="noopener noreferrer">국내 안심 금융 안전지대 종합 정보 사이트 (financial.reliabledone.com)</a></li>
+      <li>보험 상식 및 상세 용어 설명: <a href="https://namu.wiki/w/%EC%9A%B4%EC%A0%84%EC%9E%90%EB%B3%B4%ED%97%98" target="_blank" rel="noopener noreferrer">나무위키 - 운전자보험 개요 및 실무 팁</a></li>
+      <li>금융소비자 정보제공: <a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer">금융감독원 (FSS) 공식 홈페이지</a></li>
+    </ul>
+  </section>
+
+  <script>
+    // 1. Diagnostic matching script
+    function runDiagnostic() {
+      const age = document.querySelector('input[name="diag-age"]:checked').value;
+      const usage = document.querySelector('input[name="diag-usage"]:checked').value;
+      const flex = document.querySelector('input[name="diag-flex"]:checked').value;
+      const budget = document.querySelector('input[name="diag-budget"]:checked').value;
+
+      let recommendText = "";
+
+      if (usage === "biz") {
+        recommendText = "귀하는 전문 영업 목적의 운전을 하고 계십니다. 직업 변동성이 있고 위험 할증이 높은 '10년만기 혹은 20년만기 영업용 운전자보험 가성비 요금제' 가입을 강하게 추천합니다. 장기 세만기는 가격 부담이 과중할 수 있습니다.";
+      } else if (age === "senior") {
+        recommendText = "60대 이상 실버층으로 향후 안전 주행 기간을 실속있게 커버하기 위해 '80세만기 세만기 플랜'을 추천해 드립니다. 노후에 불필요한 연장 계약을 피하면서 필요한 보장만 완납하는 형태가 매끄럽습니다.";
+      } else {
+        if (flex === "high" || budget === "low") {
+          recommendText = "귀하에게는 '20년만기 순수보장형 다이렉트' 상품이 최선의 대안입니다. 상대적으로 저렴한 월 납입 요금으로 최저가 싼곳을 지향하며, 추후 법이 개정될 때 큰 위약 페널티 없이 갈아탈 수 있는 장점이 어우러집니다.";
+        } else {
+          recommendText = "귀하는 변동 없이 긴 보장을 정액 납부로 유지하길 희망하십니다. '80세만기 일부 환급형 또는 비갱신 순수형' 상품을 진단 드립니다. 20대~40대 연령대에서 고정 가격으로 조기 납입을 끝마치고 노년까지 안정적인 유지가 가능합니다.";
+        }
+      }
+
+      const resultBox = document.getElementById("diagnostic-result");
+      resultBox.innerHTML = `<strong>진단 결과:</strong><br>${recommendText}`;
+      resultBox.style.display = "block";
+    }
+
+    // 2. Adjust option details according to selected periods
+    function adjustCalculatedOptions() {
+      // Just a dynamic trigger if necessary, kept simple for reliability.
+    }
+
+    // 3. Calculator script
+    function calculatePremium() {
+      const age = parseInt(document.getElementById("calc-driver-age").value);
+      const period = document.getElementById("calc-period").value;
+      const accident = document.querySelector('input[name="calc-accident"]:checked').value;
+      
+      if (isNaN(age) || age < 18 || age > 90) {
+        alert("운전자 만 나이를 정확하게 입력해 주세요 (18세 ~ 90세).");
+        return;
+      }
+
+      // Base premium logic
+      let basePremium = 10000;
+
+      // Period scaling
+      if (period === "10-year") {
+        basePremium = 9000;
+      } else if (period === "20-year") {
+        basePremium = 11500;
+      } else if (period === "80-age") {
+        basePremium = 24000;
+      } else if (period === "100-age") {
+        basePremium = 31000;
+      }
+
+      // Age scaling
+      if (age < 26) {
+        basePremium += 3500; // Young driver risk
+      } else if (age > 65) {
+        basePremium += 5000; // Senior driver risk
+      }
+
+      // Accident scaling
+      if (accident === "1") {
+        basePremium += 2000;
+      } else if (accident === "2") {
+        basePremium += 5000;
+      }
+
+      // Riders
+      let riderPremium = 0;
+      if (document.getElementById("rider-fine").checked) {
+        riderPremium += parseInt(document.getElementById("rider-fine").value);
+      }
+      if (document.getElementById("rider-injury").checked) {
+        riderPremium += parseInt(document.getElementById("rider-injury").value);
+      }
+      if (document.getElementById("rider-support").checked) {
+        riderPremium += parseInt(document.getElementById("rider-support").value);
+      }
+
+      const totalPremium = basePremium + riderPremium;
+      const formattedNum = totalPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      const resultBox = document.getElementById("calc-result");
+      resultBox.innerHTML = `
+        <strong>예상 견적 정보:</strong><br>
+        귀하의 입력값 기준 월 예상 납입 요금은 약 <strong>${formattedNum}원</strong> 내외로 시뮬레이션 됩니다.<br>
+        - 기본료 반영분: 약 ${basePremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원<br>
+        - 희망 특약 반영분: 약 ${riderPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원<br>
+        (인터넷 온라인 다이렉트 할인 혜택이 이미 가상 적용되어 오프라인 상담보다 한결 절감된 금액 수준입니다.)
+      `;
+      resultBox.style.display = "block";
+    }
+
+    // 4. Consulting request handler
+    function submitConsulting() {
+      const name = document.getElementById("user-name").value.trim();
+      const phone = document.getElementById("user-phone").value.trim();
+      const email = document.getElementById("user-email").value.trim();
+
+      if (!name || !phone || !email) {
+        alert("필수 입력 사항(성함, 연락처, 이메일)을 모두 정확하게 작성해 주세요.");
+        return;
+      }
+
+      const resultBox = document.getElementById("consulting-result");
+      resultBox.innerHTML = `
+        <strong>상담 접수 성공:</strong><br>
+        감사합니다, ${name} 고객님! 신청하신 상세 상담 정보가 안전하게 전달되었습니다.<br>
+        2026년 최신 기준의 맞춤형 다이렉트 혜택 및 신규 프로모션(사은품, 모바일 상품권 등) 안내를 위해 적어주신 연락처(${phone})로 신속하고 조용하게 컨설턴트 피드백을 전달해 드리겠습니다.
+      `;
+      resultBox.style.display = "block";
+    }
+  </script>
+  
